@@ -10,14 +10,17 @@
 
 <div id="paypal-button-container"></div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=ATZHTH4WawB_P-KyzYiHhsr89i7WoLtCjb_cXnPH06FXXfXDZfEZvWbHDZ7gB30YS12HBnGZ_FxMQ0uK ID&currency=JPY"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=ATZHTH4WawB_P-KyzYiHhsr89i7WoLtCjb_cXnPH06FXXfXDZfEZvWbHDZ7gB30YS12HBnGZ_FxMQ0uK&currency=JPY&components=buttons"></script>
+
 <script>
 paypal.Buttons({
   createOrder: function(data, actions) {
     return actions.order.create({
       purchase_units: [{
         description: "お支払い（30万円）",
-        amount: { value: "300000" }
+        amount: {
+          value: "300000"
+        }
       }]
     });
   },
@@ -26,8 +29,9 @@ paypal.Buttons({
       alert("お支払いありがとうございます。");
     });
   }
-}).render('#paypal-button-container');
+}).render("#paypal-button-container");
 </script>
+
 
 </body>
 </html>
